@@ -2,7 +2,7 @@
 
 #################################################
 # 描述: Debian/Ubuntu/Armbian 官方sing-box 全自动脚本
-# 版本: 1.4.3
+# 版本: 1.5.1
 # 作者: Youtube: 七尺宇
 #################################################
 
@@ -44,7 +44,7 @@ SCRIPTS=(
     "manage_autostart.sh"      # 设置自启动
     "check_config.sh"          # 检查配置文件
     "update_scripts.sh"        # 更新脚本
-    "update_ui.sh"             # 更新控制面板
+    "update_ui.sh"             # 控制面板安装/更新/检查
     "menu.sh"                  # 主菜单
 )
 
@@ -133,7 +133,7 @@ auto_setup() {
 
 # 检查是否需要初始化
 if [ ! -f "$INITIALIZED_FILE" ]; then
-    echo -e "${CYAN}进入初始化引导设置,回车继续输入skip跳过${NC}"
+    echo -e "${CYAN}回车进入初始化引导设置,输入skip跳过引导${NC}"
     read -r init_choice
     if [[ "$init_choice" =~ ^[Ss]kip$ ]]; then
         echo -e "${CYAN}跳过初始化引导，直接进入菜单...${NC}"
